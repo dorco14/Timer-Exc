@@ -1,15 +1,15 @@
-import './App.css';
-import { Timers } from './components/Timers';
-import { TimerProvider } from './components/TimerContext';
+import { TimersList } from './components/TimersList';
+import {TimersProvider} from './contexts/timerContext'
+import { useAppStyles } from './appStyles';
 
-function App() {
+export const App = () => {
+  const appClasses = useAppStyles();
+
   return (
-    <div className="App">
-      <TimerProvider>
-        <Timers />
-      </TimerProvider>
+    <div className={appClasses.app}>
+      <TimersProvider>
+        <TimersList />
+      </TimersProvider>
     </div>
   );
 }
-
-export default App;
