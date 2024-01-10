@@ -4,10 +4,10 @@ import { useTimers } from '../../contexts/timerContext';
 import { useStyles } from './styles';
 import { TimerButton } from './components/TimerButton';
 import { TimerText } from './components/TimerText';
+import { COLORS } from './components/TimerButton/TimerButton';
 
-const TIMER_LIST = 'Timer List';
-const ADD_TIMER = 'Add Timer';
-const GREEN_COLOR = 'green';
+const TIMERS_LIST_TEXT = 'Timers List';
+const ADD_TIMER_TEXT = 'Add Timer';
 
 export const TimersList = () => {
   const store = useTimers();
@@ -15,7 +15,7 @@ export const TimersList = () => {
 
   return (
     <div>
-      <TimerText text={TIMER_LIST}/>
+      <TimerText text={TIMERS_LIST_TEXT} />
       <div className={timersClasses.divider}></div>
       {
         store.state.timers.map((timer) => (
@@ -25,7 +25,7 @@ export const TimersList = () => {
           </Fragment>
         ))
       }
-      <TimerButton color={GREEN_COLOR} onClick={store.actions.addTimer} text={ADD_TIMER}/>
+      <TimerButton color={COLORS.green} onClick={store.actions.addTimer} text={ADD_TIMER_TEXT} />
     </div>
   );
 }
